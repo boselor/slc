@@ -1,5 +1,5 @@
 # 最低指定的CMake版本
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.15)
 
 # 括号里面填你的工程名
 PROJECT(slc)
@@ -15,6 +15,7 @@ option (USE_SL
 SET(SLC_G src/slc.cpp)
 
 ADD_SUBDIRECTORY(src/core)
+ADD_SUBDIRECTORY(src/compression)
 ADD_SUBDIRECTORY(src/log)
 
 ADD_LIBRARY(slc ${SLC_G})

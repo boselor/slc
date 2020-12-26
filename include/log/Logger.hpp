@@ -7,7 +7,7 @@
 
 #ifndef SLC_LOGGER
 #define SLC_LOGGER
-#include <defination.hpp>
+#include <Defination.hpp>
 #include <core/EString.hpp>
 namespace slc
 {
@@ -19,7 +19,7 @@ namespace slc
     public:
         Logger(/* args */);
         ~Logger();
-        Logger* getInstance();
+        Logger& getInstance();
         struct Params
         {
             EString folder = EString::empty();

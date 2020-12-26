@@ -11,7 +11,7 @@ namespace slc {
 
     Logger::~Logger() {}
 
-    Logger Logger::*getInstance() { return nullptr; }
+    Logger& Logger::getInstance() { return *this; }
 
     void Logger::Info(EString info) {
         write(EString::format("[I]:%s",info.toStdString().c_str()));

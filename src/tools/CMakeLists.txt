@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 # 括号里面填你的工程名
-PROJECT(SLCLOGGER)
+PROJECT(SLCTOOLS)
 
 INCLUDE_DIRECTORIES(${SLC_INCLUDE})
 

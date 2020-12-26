@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <defination.hpp>
+#include <Defination.hpp>
 namespace slc
 {
     class EString
