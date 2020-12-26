@@ -1,17 +1,38 @@
 #include <core/EString.hpp>
-
+#include<cstdarg>
+#include <stdio.h>
+#include <stdarg.h>
 namespace slc
 {
+    EString EString::empty() {
+        EString res;
+        res.entity = "";
+        return res;
+    }
+    EString EString::fromInt(int val) { return EString(val); }
+    EString EString::fromDouble(double val) { return EString(val); }
+    EString EString::fromBoolean(bool val) { return EString(val); }
+    EString EString::fromStdString(const std::string val) { return EString(val); }
+    EString EString::format(const char* format, ...) {
+        va_list args;
+        int     len;
+        char    *buffer;
+
+        va_start( args, format );
+        len = _vscprintf( format, args ) + 1;
+        buffer = (char*)malloc( len * sizeof(char) );
+        std::vsprintf( buffer, format, args );
+        EString res = EString(buffer);
+        free( buffer );
+        return res;
+    }
+
 #pragma region basic
     EString::~EString()
     {
     }
     EString::EString()
     {
-    }
-    EString EString::operator=(const EString val)
-    {
-        return val;
     }
     EString EString::clone()
     {
@@ -70,4 +91,11 @@ namespace slc
         this->entity = val ? "TRUE" : "FALSE";
     }
 #pragma endregion
+
+#pragma region chars
+    EString::EString(char* val) {
+        this->entity = val;
+    }
+#pragma endregion
+
 } // namespace slc

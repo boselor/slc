@@ -15,19 +15,19 @@ namespace slc
     {
     private:
         int MAX_SIZE = 1024;
-
+        void write(EString val);
     public:
         Logger(/* args */);
         ~Logger();
         Logger* getInstance();
         struct Params
         {
-            EString folder = "";
+            EString folder = EString::empty();
             bool colorful = false;
         } params;
-        void Info(EString info,...);
-        void Warn(EString info,...);
-        void Error(EString info,...);
+        void Info(EString info);
+        void Warn(EString info);
+        void Error(EString info);
     };
 } // namespace slc
 #endif
