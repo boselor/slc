@@ -20,4 +20,4 @@ ADD_SUBDIRECTORY(src/log)
 
 ADD_LIBRARY(slc ${SLC_G})
 ADD_EXECUTABLE(slce src/slc.cpp)
-TARGET_LINK_LIBRARIES(slce slc_logger)
+TARGET_LINK_LIBRARIES(slce slc_logger slc_core)
