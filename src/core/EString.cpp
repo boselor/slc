@@ -1,5 +1,4 @@
 #include <core/EString.hpp>
-#include<cstdarg>
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -10,8 +9,14 @@ namespace slc {
         return res;
     }
 
+    std::string EString::getData() { return this->entity; }
+
     void EString::print() {
         std::cout << this->toStdString() << std::endl;
+    }
+
+    EString EString::fromChars(const char *val) {
+        return EString(val);
     }
 
     EString EString::fromInt(int val) { return EString(val); }
@@ -48,7 +53,48 @@ namespace slc {
         return EString(this->entity);
     }
 
+    EString EString::concat(EString str1, EString str2) {
+        auto res = str1.getData() + str2.getData();
+        return EString(res);
+    }
+
+    EString EString::concat(EString str1, const char *str2) {
+        auto res = str1.getData() + str2;
+        return EString(res);
+    }
+
+    EString EString::concat(EString str1, const int val) {
+        auto res = str1.getData() + std::to_string(val);
+        return EString(res);
+    }
+
+    EString EString::concat(EString str1, const double val) {
+        auto res = str1.getData() + std::to_string(val);
+        return EString(res);
+    }
+
+    EString EString::concatWith(EString val) {
+        return EString(this->entity + val.getData());
+    }
+
+    EString EString::concatWith(const int val) {
+        return concatWith(EString::fromInt(val));
+    }
+
+    EString EString::concatWith(const double val) {
+        return concatWith(EString::fromDouble(val));
+    }
+
+    EString EString::concatWith(const char *val) {
+        return concatWith(EString::fromChars(val));
+    }
+
+    EString EString::concatWith(const std::string val) {
+        return concatWith(EString::fromStdString(val));
+    }
+
 #pragma endregion
+
 //字符串操作
 #pragma region string
 
@@ -64,6 +110,11 @@ namespace slc {
     std::string EString::toStdString() {
         return this->entity;
     }
+
+    const char *EString::toStdChars() {
+        return this->entity.c_str();
+    }
+
 
 #pragma endregion
 
@@ -95,12 +146,37 @@ namespace slc {
         return std::atof(this->entity.c_str());
     }
 
+    bool EString::isEmpty() {
+        return this->entity.length() <= 0;
+    }
+
+    EString EString::toLower() {
+        std::string res = this->entity;
+        for (int i = 0; i < res.size(); i++)
+            if(res[i] >= 'A' && res[i] <= 'Z')
+                res[i] = res[i] + ('a' - 'A');
+        return EString(res);
+    }
+    EString EString::toUpper() {
+        std::string res = this->entity;
+        for (int i = 0; i < res.size(); i++)
+            if(res[i] >= 'a' && res[i] <= 'z')
+                res[i] = res[i] - ('a' - 'A');
+        return EString(res);
+    }
+    bool EString::equals(EString val) {
+        return this->entity.compare(val.getData());
+    }
+    bool EString::equals(std::string val) {
+        return this->entity.compare(val);
+    }
+
 #pragma endregion
 
 #pragma region logic
 
-    EString::EString(const bool val) {
-        this->entity = val ? "TRUE" : "FALSE";
+    bool EString::toBoolean() {
+        return this->toLower().equals(EString::format("true"));
     }
 
 #pragma endregion

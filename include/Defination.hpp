@@ -8,3 +8,9 @@
 // 全局定义
 #define MAX_PATH 1024
 #define MLC_STEP 100
+
+// 异常
+#define SLC_EXIT_FAILURE 1
+#define SLC_EXIT_SUCCESS 0
+#define  SLC_EXIT_UNEXCEPTION -1
+#define  SLC_EXIT_IO -2

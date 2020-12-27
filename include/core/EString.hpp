@@ -26,12 +26,29 @@ namespace slc
         static EString empty();
 
         void print();
-
+        std::string getData();
         //字符串操作
         EString operator+(const std::string val);
         EString(std::string val);
         std::string toStdString();
+        const char* toStdChars();
         EString clone();
+        bool isEmpty();
+        EString concat(EString str1,EString str2);
+        EString concat(EString str1,const std::string str2);
+        EString concat(EString str1,const char* str2);
+        EString concat(EString str1,const int val);
+        EString concat(EString str1,const double val);
+        EString concatWith(EString val);
+        EString concatWith(const std::string val);
+        EString concatWith(const char* val);
+        EString concatWith(const int val);
+        EString concatWith(const double val);
+
+        EString toLower();
+        EString toUpper();
+        bool equals(EString val);
+        bool equals(std::string val);
 
         //数字的操作
         EString operator+(int val);
@@ -42,7 +59,7 @@ namespace slc
         double toDouble();
 
         //逻辑操作符
-        EString(bool val);
+        bool toBoolean();
 
         //逻辑操作符
         EString(char* val);

@@ -15,9 +15,11 @@ option (USE_SL
 SET(SLC_G src/slc.cpp)
 
 ADD_SUBDIRECTORY(src/core)
+ADD_SUBDIRECTORY(src/cv)
+ADD_SUBDIRECTORY(src/configure)
 ADD_SUBDIRECTORY(src/compression)
 ADD_SUBDIRECTORY(src/log)
 
 ADD_LIBRARY(slc ${SLC_G})
 ADD_EXECUTABLE(slce src/slc.cpp)
-TARGET_LINK_LIBRARIES(slce slc_logger slc_core)
+TARGET_LINK_LIBRARIES(slce slc_logger slc_core slc_cv slc_configure)
