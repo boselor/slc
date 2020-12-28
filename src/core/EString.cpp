@@ -165,10 +165,10 @@ namespace slc {
         return EString(res);
     }
     bool EString::equals(EString val) {
-        return this->entity.compare(val.getData());
+        return this->entity.compare(val.getData()) == 0;
     }
     bool EString::equals(std::string val) {
-        return this->entity.compare(val);
+        return this->entity.compare(val) == 0;
     }
 
 #pragma endregion

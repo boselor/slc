@@ -4,7 +4,21 @@
 
 #ifndef SLC_MATH_H
 #define SLC_MATH_H
-class ParallelMath{
 
-};
+#include <core/EString.hpp>
+#include <configure/IniConfigure.hpp>
+#include <log/Logger.hpp>
+
+namespace slc {
+    class ParallelMath {
+    private:
+        Logger logger;
+        IniConfiguration configuration;
+    public:
+        void setLogger(Logger &log);
+        void setConfigure(IniConfiguration &config);
+
+        int* add (const int* a , const int* b, int c);
+    };
+}
 #endif //SLC_MATH_H
