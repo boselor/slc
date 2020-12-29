@@ -1,4 +1,4 @@
-#include <configure/IniConfigure.hpp>
+#include <core/IniConfigure.hpp>
 #include <stdlib.h>
 #include <fstream>
 #include <map>
