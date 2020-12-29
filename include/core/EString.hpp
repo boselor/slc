@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <Defination.hpp>
+#include <vector>
 #ifndef SLC_ESTRING
 #define SLC_ESTRING
 namespace slc
@@ -10,7 +11,6 @@ namespace slc
     private:
         char *p;
         std::string entity = "";
-
     public:
         int Length = -1;
 
@@ -19,7 +19,6 @@ namespace slc
 
         static EString fromInt(int val);
         static EString fromDouble(double val);
-        static EString fromBoolean(bool val);
         static EString fromStdString(const std::string val);
         static EString fromChars(const char* val);
         static EString format(const char* formater, ...);
@@ -44,6 +43,7 @@ namespace slc
         EString concatWith(const char* val);
         EString concatWith(const int val);
         EString concatWith(const double val);
+        EString* split(const char* splitor);
 
         EString toLower();
         EString toUpper();

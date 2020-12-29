@@ -1,6 +1,9 @@
 #include <core/EString.hpp>
 #include <stdio.h>
 #include <stdarg.h>
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
 
 namespace slc {
     EString EString::empty() {
@@ -22,8 +25,6 @@ namespace slc {
     EString EString::fromInt(int val) { return EString(val); }
 
     EString EString::fromDouble(double val) { return EString(val); }
-
-    EString EString::fromBoolean(bool val) { return EString(val); }
 
     EString EString::fromStdString(const std::string val) { return EString(val); }
 
@@ -91,6 +92,20 @@ namespace slc {
 
     EString EString::concatWith(const std::string val) {
         return concatWith(EString::fromStdString(val));
+    }
+
+    std::vector<EString> split(EString& strVal, const char* val) {
+        char *p;
+        char va[] = "";
+        p = strtok(va, val);
+        std::vector<EString> res;
+        while(p)
+        {
+            printf("%s\n", p);
+            p = strtok(NULL, val);
+        }
+
+        return res;
     }
 
 #pragma endregion

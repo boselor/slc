@@ -21,6 +21,6 @@ ADD_SUBDIRECTORY(src/log)
 ADD_SUBDIRECTORY(src/parallel)
 ADD_SUBDIRECTORY(src/algorithm)
 
-ADD_LIBRARY(slc ${SLC_G})
+# ADD_LIBRARY(slc ${SLC_G})
 ADD_EXECUTABLE(slce src/slc.cpp)
-TARGET_LINK_LIBRARIES(slce slc_logger slc_core slc_cv slc_parallel)
+TARGET_LINK_LIBRARIES(slce slc_logger slc_core slc_cv slc_algorithm)

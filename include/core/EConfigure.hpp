@@ -9,25 +9,18 @@
 #include <map>
 
 namespace slc {
-    class IniConfiguration{
+    class EConfigure{
     private:
-        Logger logger;
-
-        bool isSpace(char c);
-        bool isCommentChar(char c);
-        void trim(std::string &str);
-        bool analyseLine(const std::string &line, std::string &section, std::string &key, std::string &value);
-        std::map<std::string, std::map<std::string, std::string> > settings_;
+        std::map<std::string,std::string> _factory;
     public:
-        void setLogger(Logger &logger);
-        bool loadFile(EString file);
-        bool readConfig(const std::string &filename);
-        std::string readString(const char *section, const char *item, const char *default_value = "");
-        int readInt(const char *section, const char *item, const int &default_value = 0);
-        float readFloat(const char *section, const char *item, const float &default_value = 0.0);
+        EConfigure();
+        ~EConfigure();
 
-        IniConfiguration();
-        ~IniConfiguration();
+        bool loadFile(EString file);
+        void setLogger(Logger &logger);
+        EString readString(EString path, const EString val = EString::empty());
+        int readInt(EString path, const int val = 0);
+        float readFloat(EString path, const double val = 0);
     };
 }
 #endif //SLC_INICONFIGURE_H
