@@ -12,7 +12,7 @@ INCLUDE_DIRECTORIES(${SLC_INCLUDE})
 option (USE_SL
        "Build SLC with a single lib" OFF)
 
-SET(SLC_G src/slc.cpp)
+SET(SLC_G sBrc/slc.cpp)
 
 ADD_SUBDIRECTORY(src/core)
 ADD_SUBDIRECTORY(src/cv)
