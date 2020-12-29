@@ -9,7 +9,7 @@
 #include <core/EString.hpp>
 #include <opencv2/opencv.hpp>
 #include <log/Logger.hpp>
-#include <configure/IniConfigure.hpp>
+#include <core/IniConfigure.hpp>
 namespace slc
 {
     class VideoCapture

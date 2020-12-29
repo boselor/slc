@@ -6,7 +6,7 @@
 #define SLC_MATH_H
 
 #include <core/EString.hpp>
-#include <configure/IniConfigure.hpp>
+#include <core/IniConfigure.hpp>
 #include <log/Logger.hpp>
 
 namespace slc {
