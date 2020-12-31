@@ -1,24 +1,14 @@
 //
 // Created by xiaoyong on 2020/12/30.
 //
-
+#include <core/EString.hpp>
 #ifndef SLC_SQLADAPTER_HPP
 #define SLC_SQLADAPTER_HPP
-#include <core/EString.hpp>
 namespace slc{
-    class SQLAdapter{
+    class SQLReader{
     public:
-        SQLAdapter();
-        SQLAdapter(EString connectStrings);
-        ~SQLAdapter();
-        SQLAdapter static createInstance(EString connectStrings);
-        bool connect(EString connectStrings);
-        bool isConnected();
-
-        int insertAction(EString sql);
-        int deleteAction(EString sql);
-        int updateAction(EString sql);
-        EString scalarAction(EString sql);
+        SQLReader();
+        ~SQLReader();
     };
 }
 #endif //SLC_SQLADAPTER_HPP

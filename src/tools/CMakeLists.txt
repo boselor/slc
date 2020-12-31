@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.0)
-
 # 括号里面填你的工程名
 PROJECT(SLCTOOLS)
 

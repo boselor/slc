@@ -108,6 +108,24 @@ namespace slc {
         return res;
     }
 
+    /*
+     *
+     static EString Utf82Unicode(EString val);
+        static EString WideByte2Acsi(EString val);
+        static EString UTF_82ASCII(EString val);
+        static EString Acsi2WideByte(EString val);
+        static EString Unicode2Utf8(EString val);
+        static EString ASCII2UTF8(EString val);
+     * */
+//    EString EString::Utf82Unicode(EString){
+//
+//    }
+//    EString EString::WideByte2Acsi(EString){}
+//    EString EString::UTF_82ASCII(EString){}
+//    EString EString::Acsi2WideByte(EString){}
+//    EString EString::Unicode2Utf8(EString){}
+//    EString EString::ASCII2UTF8(EString){}
+
 #pragma endregion
 
 //字符串操作

@@ -5,7 +5,7 @@
 #include <parallel/ParallelMath.hpp>
 
 namespace slc {
-    void ParallelMath::setLogger(Logger &log) { this->logger = log; }
+    void ParallelMath::setLogger(File &log) { this->logger = log; }
 
     void ParallelMath::setConfigure(IniConfiguration &config) { this->configuration = config; }
 

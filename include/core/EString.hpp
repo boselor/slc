@@ -23,6 +23,12 @@ namespace slc
         static EString fromChars(const char* val);
         static EString format(const char* formater, ...);
         static EString empty();
+//        static EString Utf82Unicode(EString val);
+//        static EString WideByte2Acsi(EString val);
+//        static EString UTF_82ASCII(EString val);
+//        static EString Acsi2WideByte(EString val);
+//        static EString Unicode2Utf8(EString val);
+//        static EString ASCII2UTF8(EString val);
 
         void print();
         std::string getData();

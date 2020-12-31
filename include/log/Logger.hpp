@@ -11,15 +11,15 @@
 #include <core/EString.hpp>
 namespace slc
 {
-    class File
+    class Logger
     {
     private:
         int MAX_SIZE = 1024;
         void write(EString val);
     public:
-        File(/* args */);
-        ~File();
-        File& getInstance();
+        Logger(/* args */);
+        ~Logger();
+        Logger& getInstance();
         struct Params
         {
             EString folder = EString::empty();

@@ -7,15 +7,15 @@
 
 #include <core/EString.hpp>
 #include <core/IniConfigure.hpp>
-#include <log/Logger.hpp>
+#include <log/File.hpp>
 
 namespace slc {
     class ParallelMath {
     private:
-        Logger logger;
+        File logger;
         IniConfiguration configuration;
     public:
-        void setLogger(Logger &log);
+        void setLogger(File &log);
         void setConfigure(IniConfiguration &config);
 
         int* add (const int* a , const int* b, int c);

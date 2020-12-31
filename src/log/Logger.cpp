@@ -4,28 +4,28 @@
 * 文件名 : File.cpp
 * 描述   : 日志系统的实现
 **/
-#include <log/File.hpp>
+#include <log/Logger.hpp>
 
 namespace slc {
-    File::File(/* args */) {}
+    Logger::Logger(/* args */) {}
 
-    File::~File() {}
+    Logger::~Logger() {}
 
-    File& File::getInstance() { return *this; }
+    Logger& Logger::getInstance() { return *this; }
 
-    void File::Info(EString info) {
+    void Logger::Info(EString info) {
         write(EString::format("[I]:%s",info.toStdString().c_str()));
     }
 
-    void File::Warn(EString info) {
+    void Logger::Warn(EString info) {
         write(EString::format("[W]:%s",info.toStdString().c_str()));
     }
 
-    void File::Error(EString info) {
+    void Logger::Error(EString info) {
         write(EString::format("[E]:%s",info.toStdString().c_str()));
     }
 
-    void File::write(EString val) {
+    void Logger::write(EString val) {
         std::cout << val.toStdString() << std::endl;
     }
 } // namespace slc
