@@ -1,22 +1,35 @@
 #include <core/EString.hpp>
-#include <core/EConfigure.hpp>
+#include <core/IniConfigure.hpp>
 #include <io/Directory.hpp>
+#include <cv/videos/VideoCapture.hpp>
 
 using namespace slc;
 int main(){
 
     Logger log;
     log.Info(EString::format("Works start..."));
-    EConfigure config;
-    config.loadFile(EString::format("../app.ini"));
+    IniConfiguration config;
+    config.loadFile(EString::format("../data/app.ini"));
 
-//    auto file = EString::format("E:/slc/app.ini");
-//    if(Directory(File(file).getParent()).exist())
-//        EString::format("ok").print();
+    VideoCapture capture;
+    capture.setLogger(log);
+    capture.setConfigure(config);
 
-    if(Directory(EString::format("E:/slc/x/d/e/q/w/ds/")).mk_dirs())
-        log.Info(EString::format("create folder done!"));
+    if(!capture.tryOpen(EString::format("%s/%s"
+            ,config.readString("app","wspace","").c_str()
+            ,config.readString("app","file","").c_str()))){
+        log.Error(EString::format("Cannot open the file!"));
+        exit(SLC_EXIT_IO);
+    }
 
+    cv::Mat mat;
+    capture >> mat;
+
+    MatrixOperator opt;
+    opt.load(mat);
+    opt.show(EString::format("show"), 0 , 800, 800);
+
+    capture.dispose();
     log.Info(EString::format("Works done."));
     return 0;
 }

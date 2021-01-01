@@ -10,6 +10,8 @@
 #include <opencv2/opencv.hpp>
 #include <log/Logger.hpp>
 #include <core/IniConfigure.hpp>
+#include <cv/common/MatrixOperator.h>
+
 namespace slc
 {
     class VideoCapture
@@ -18,17 +20,21 @@ namespace slc
         cv::VideoCapture capture;
         Logger logger;
         IniConfiguration configuration;
+
     public:
         VideoCapture(/* args */);
         ~VideoCapture();
         static VideoCapture fromString(EString val);
         void open(EString val = EString::empty());
+        bool tryOpen(EString val = EString::empty());
         void dispose();
 
         bool isOpen();
         VideoCapture clone();
         void setLogger(Logger &log);
         void setConfigure(IniConfiguration config);
+
+        cv::Mat& operator >> (cv::Mat& res);
     };
 } // namespace slc
 #endif
