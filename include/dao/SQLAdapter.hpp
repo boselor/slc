@@ -7,15 +7,11 @@
 #include <core/EString.hpp>
 #include <dao/SQLReader.hpp>
 #include <log/Logger.hpp>
-extern "C" {
-#include "sqlite/sqlite3.h"
-};
 
 namespace slc{
     class SQLAdapter{
     private:
         Logger logger;
-        sqlite3* _db;
     public:
         SQLAdapter();
         SQLAdapter(EString connectStrings);

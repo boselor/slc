@@ -14,8 +14,8 @@ namespace slc{
         File(EString val);
         ~File();
         bool isExist();
-
         EString getAbsolute();
+        EString getParent();
     };
 }
 #endif //SLC_FILE_HPP

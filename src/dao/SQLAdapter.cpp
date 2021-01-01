@@ -12,13 +12,24 @@ namespace slc{
     }
 
     bool SQLAdapter::connect(EString connectStrings) {
-        int rc = sqlite3_open(connectStrings.toStdString().c_str(),&this->_db);
-        std::cout << rc << std::endl;
+        return false;
     }
-    bool SQLAdapter::isConnected() {}
-    SQLAdapter SQLAdapter::createInstance(EString connectStrings) {}
-    int SQLAdapter::insertAction(EString sql) {}
-    int SQLAdapter::deleteAction(EString sql) {}
-    int SQLAdapter::updateAction(EString sql) {}
-    SQLAdapter SQLAdapter::readAction(EString sql) {}
+    bool SQLAdapter::isConnected() {
+        return false;
+    }
+    SQLAdapter SQLAdapter::createInstance(EString connectStrings) {
+        return SQLAdapter();
+    }
+    int SQLAdapter::insertAction(EString sql) {
+        return -1;
+    }
+    int SQLAdapter::deleteAction(EString sql) {
+        return -1;
+    }
+    int SQLAdapter::updateAction(EString sql) {
+        return -1;
+    }
+    SQLAdapter SQLAdapter::readAction(EString sql) {
+        return SQLAdapter();
+    }
 }

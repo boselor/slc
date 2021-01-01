@@ -147,6 +147,12 @@ namespace slc {
     const char *EString::toStdChars() {
         return this->entity.c_str();
     }
+    int EString::lastIndexOf(char pattern) {
+        return this->entity.find_last_of(pattern);
+    }
+    EString EString::substr(int start = 0, int stop = -1) {
+        return EString(this->entity.substr(start,stop));
+    }
 
 
 #pragma endregion

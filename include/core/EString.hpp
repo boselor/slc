@@ -50,6 +50,8 @@ namespace slc
         EString concatWith(const int val);
         EString concatWith(const double val);
         EString* split(const char* splitor);
+        EString substr(int start, int stop);
+        int lastIndexOf(char pattern);
 
         EString toLower();
         EString toUpper();

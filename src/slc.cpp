@@ -1,9 +1,6 @@
-#include <core/Stopwatch.hpp>
 #include <core/EString.hpp>
 #include <core/EConfigure.hpp>
-#include <log/Logger.hpp>
-#include <io/File.hpp>
-#include <dao/SQLAdapter.hpp>
+#include <io/Directory.hpp>
 
 using namespace slc;
 int main(){
@@ -13,10 +10,12 @@ int main(){
     EConfigure config;
     config.loadFile(EString::format("../app.ini"));
 
-    auto file = EString::format("E:/slc/app.ini");
-    SQLAdapter adapter;
-    adapter.connect(file);
+//    auto file = EString::format("E:/slc/app.ini");
+//    if(Directory(File(file).getParent()).exist())
+//        EString::format("ok").print();
 
+    if(Directory(EString::format("E:/slc/x/d/e/q/w/ds/")).mk_dirs())
+        log.Info(EString::format("create folder done!"));
 
     log.Info(EString::format("Works done."));
     return 0;

@@ -15,14 +15,27 @@ option (USE_SL
 SET(SLC_G sBrc/slc.cpp)
 
 ADD_SUBDIRECTORY(src/core)
-ADD_SUBDIRECTORY(src/cv)
+
+option (USE_CV
+        "Build with opencv" ON)
+if (USE_CV)
+    ADD_SUBDIRECTORY(src/cv)
+endif (USE_CV)
+
+ADD_SUBDIRECTORY(src/accelerate)
+#option (USE_GDAL
+#        "Build with gdal" OFF)
+#if (USE_CV)
+#    ADD_SUBDIRECTORY(src/gdal)
+#endif (USE_CV)
+
 ADD_SUBDIRECTORY(src/compression)
 ADD_SUBDIRECTORY(src/log)
-ADD_SUBDIRECTORY(src/dao)
+# ADD_SUBDIRECTORY(src/dao)
 ADD_SUBDIRECTORY(src/parallel)
 ADD_SUBDIRECTORY(src/algorithm)
 ADD_SUBDIRECTORY(src/io)
 
 # ADD_LIBRARY(slc ${SLC_G})
 ADD_EXECUTABLE(slce src/slc.cpp)
-TARGET_LINK_LIBRARIES(slce slc_logger slc_core slc_cv slc_io slc_dao)
+TARGET_LINK_LIBRARIES(slce slc_logger slc_core slc_cv slc_io)

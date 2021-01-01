@@ -1,13 +1,12 @@
 # 括号里面填你的工程名
-PROJECT(SLCAlgorithm)
+PROJECT(SLCAccelerator)
 
 INCLUDE_DIRECTORIES(${SLC_INCLUDE})
 
-MESSAGE(STATUS "Begin to build slc_parallel")
-if (USE_SL)
-    SET(SLC_G AdjacencyList.cpp SeqList.cpp)
-else()
-    SET(SLC_L AdjacencyList.cpp SeqList.cpp)
-    ADD_LIBRARY(slc_algorithm ${SLC_L})
-    TARGET_LINK_LIBRARIES(slc_algorithm slc_core slc_logger)
-endif(USE_SL)
+MESSAGE(STATUS "Begin to build slc_accelerator")
+
+option (USE_CUDA
+        "Build with cuda" OFF)
+if (USE_CUDA EQUAL ON)
+    ADD_SUBDIRECTORY(src/accelerate/cuda)
+endif (USE_CUDA)
