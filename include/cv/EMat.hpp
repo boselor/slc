@@ -16,6 +16,7 @@ namespace slc{
         EMat(cv::Mat& val);
         EMat clone();
         EMat show(EString title, int waitKey = 0, cv::Size size = cv::Size(-1,-1), bool opengl = false);
+        EMat details();
 
         void dispose();
     };

@@ -30,7 +30,7 @@ int main(){
     log.Info(EString::format("width = %d, height = %d",am.cols,am.rows));
     EMat opt;
     opt.load(am);
-    opt.show(EString::format("show"),0);
+    opt.details();
     opt.dispose();
 
     capture.dispose();
