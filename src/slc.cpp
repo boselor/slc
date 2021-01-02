@@ -2,6 +2,7 @@
 #include <core/IniConfigure.hpp>
 #include <io/Directory.hpp>
 #include <cv/videos/VideoCapture.hpp>
+#include <cv/EMat.hpp>
 
 using namespace slc;
 int main(){
@@ -21,13 +22,16 @@ int main(){
         log.Error(EString::format("Cannot open the file!"));
         exit(SLC_EXIT_IO);
     }
+    log.Info(EString::format("open video success!"));
 
     cv::Mat mat;
     capture >> mat;
-
-    MatrixOperator opt;
-    opt.load(mat);
-    opt.show(EString::format("show"), 0 , 800, 800);
+    auto am = mat.clone();
+    log.Info(EString::format("width = %d, height = %d",am.cols,am.rows));
+    EMat opt;
+    opt.load(am);
+    opt.show(EString::format("show"),0);
+    opt.dispose();
 
     capture.dispose();
     log.Info(EString::format("Works done."));

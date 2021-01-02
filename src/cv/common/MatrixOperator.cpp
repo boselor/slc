@@ -13,14 +13,6 @@ namespace slc{
         return *this;
     }
     MatrixOperator MatrixOperator::show(EString title, int waitKey, int width, int height, bool openGL) {
-//        if(openGL)
-//            cv::namedWindow(title.toStdString(),cv::WindowFlags::WINDOW_OPENGL);
-//        else {
-//            if(width == -1 || height == -1)
-//                cv::namedWindow(title.toStdString());
-//            else
-//                cv::namedWindow(title.toStdString(),cv::WindowFlags::WINDOW_AUTOSIZE);
-//        }
 
         cv::namedWindow(title.toStdString(),cv::WindowFlags::WINDOW_NORMAL);
         cv::resizeWindow(title.toStdString(), width <= 0? this->entity.cols: width, height <= 0 ?this->entity.rows: height);
