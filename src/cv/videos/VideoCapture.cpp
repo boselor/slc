@@ -36,8 +36,10 @@ namespace slc{
     void VideoCapture::setLogger(Logger &log) {
         this->logger = log;
     }
-    cv::Mat & VideoCapture::operator>>(cv::Mat &res) {
-        this->capture >> res;
+    EMat & VideoCapture::operator>>(EMat &res) {
+        cv::Mat val;
+        this->capture >> val;
+        res = EMat::fromMat(val);
         return res;
     }
 

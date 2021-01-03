@@ -10,7 +10,7 @@
 #include <opencv2/opencv.hpp>
 #include <log/Logger.hpp>
 #include <core/IniConfigure.hpp>
-#include <cv/common/MatrixOperator.h>
+#include <cv/EMat.hpp>
 
 namespace slc
 {
@@ -34,7 +34,7 @@ namespace slc
         void setLogger(Logger &log);
         void setConfigure(IniConfiguration config);
 
-        cv::Mat& operator >> (cv::Mat& res);
+        EMat& operator >> (EMat& res);
     };
 } // namespace slc
 #endif

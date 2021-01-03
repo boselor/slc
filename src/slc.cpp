@@ -24,13 +24,11 @@ int main(){
     }
     log.Info(EString::format("open video success!"));
 
-    cv::Mat mat;
-    capture >> mat;
-    auto am = mat.clone();
-    log.Info(EString::format("width = %d, height = %d",am.cols,am.rows));
     EMat opt;
-    opt.load(am);
-    opt.details();
+    capture >> opt;
+    auto am = opt.clone();
+    log.Info(EString::format("width = %d, height = %d",am.cols,am.rows));
+    opt.details().show(EString::format("show"));
     opt.dispose();
 
     capture.dispose();
