@@ -35,7 +35,15 @@ namespace slc{
         cv::Mat getMat(int index = -1);
         EMat get(int channel);
 
-        template<typename T> T at(int rows, int cols);
+        template<typename T> T at(int rows, int cols) {
+            if(rows > this->rows || cols > this->cols){
+                return -1;
+            }
+            T t = 0;
+            for(int i = 1; i < this->_list.size(); i++)
+                t += this->_list[i].at<T>(cols,rows);
+            return t / (this->_list.size() - 1);
+        }
 
         void dispose();
     };

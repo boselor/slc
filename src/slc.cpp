@@ -28,7 +28,10 @@ int main(){
     capture >> opt;
     auto am = opt.clone();
     log.Info(EString::format("width = %d, height = %d",am.cols,am.rows));
-    opt.details().show(EString::format("show"));
+    // opt.details().show(EString::format("show"));
+
+    std::cout<< opt.at<int>(100,100)<<std::endl;
+
     opt.dispose();
 
     capture.dispose();

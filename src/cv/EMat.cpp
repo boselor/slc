@@ -6,16 +6,13 @@
 
 namespace slc {
     EMat::EMat() {}
-
     EMat::~EMat() {}
-
     void EMat::bind(std::vector<cv::Mat> list) {
         this->_list = list;
         this->type = list[0].type();
         this->rows = list[0].rows;
         this->cols = list[0].cols;
     }
-
     EMat::EMat(std::vector<cv::Mat> val) {
         if(val.size() <= 0)
         {
@@ -39,7 +36,6 @@ namespace slc {
         }
         bind(val);
     }
-
     EMat::EMat(cv::Mat val) {
         rows = val.rows;
         cols = val.cols;
@@ -47,7 +43,6 @@ namespace slc {
 
         this->size = cv::Size(rows, cols);
     }
-
     EMat EMat::clone() {
         std::vector<cv::Mat> list;
         for(auto mat: this->_list)
@@ -78,7 +73,6 @@ namespace slc {
         }
         return EMat::fromList(list);
     }
-
     EMat EMat::show(EString title, int waitKey, cv::Size size, bool opengl) {
         if (opengl)
             cv::namedWindow(title.toStdChars(), cv::WindowFlags::WINDOW_OPENGL);
@@ -97,12 +91,10 @@ namespace slc {
             list.push_back(this->_list[i]);
 
         cv::merge(list,mat);
-
         cv::imshow(title.toStdChars(), mat);
         cv::waitKey(waitKey);
         return *this;
     }
-
     EMat EMat::details() {
         std::cout << "------------------------------" << std::endl;
         EString type;
@@ -117,7 +109,6 @@ namespace slc {
         std::cout << "------------------------------" << std::endl;
         return *this;
     }
-
     EMat EMat::bindType(EString &val, int _type) {
         if (_type = -1) {
             _type = this->_list[0].type();
@@ -147,14 +138,9 @@ namespace slc {
         }
         return *this;
     }
-
-    template<typename T> T EMat::at(int rows, int cols) {
-        // return this->_mat.at<T>(rows,cols);
-    }
     EMat EMat::get(int channel) {
-        return EMat();
+        return EMat::fromMat(this->_list[channel]);
     }
-
     void EMat::dispose() {
         for(auto m: this->_list)
             m.release();
