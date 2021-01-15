@@ -130,7 +130,6 @@ namespace slc {
 
 //字符串操作
 #pragma region string
-
     EString EString::operator+(const std::string val) {
         std::string buf = this->entity + val;
         return EString(buf);
@@ -224,6 +223,12 @@ namespace slc {
 
     EString::EString(char *val) {
         this->entity = val;
+    }
+    EString EString::toMd5(EString val){
+        if(val.equals(EString::format("utf8"))){
+            return EString::format("");
+        }
+        return EString::format("");
     }
 
 #pragma endregion

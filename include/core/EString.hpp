@@ -53,6 +53,8 @@ namespace slc
         EString substr(int start, int stop);
         int lastIndexOf(char pattern);
 
+        EString toMd5(EString encoding = EString::format("utf8"));
+
         EString toLower();
         EString toUpper();
         bool equals(EString val);
