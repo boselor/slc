@@ -5,6 +5,14 @@ INCLUDE_DIRECTORIES(${SLC_INCLUDE})
 # D:\Env\opencv\mingw
 set(OpenCV_DIR D:/Env/opencv/mingw/)
 
+if(MSVC)
+    set(OpenCV_DIR D:/Env/opencv/msvc/)
+    message(STATUS "MSVC Builder")
+else()
+    set(OpenCV_DIR D:/Env/opencv/mingw/)
+    message(STATUS "MINGW Builder")
+endif()
+
 FIND_PACKAGE(OpenCV REQUIRED)
 
 if (USE_SL)

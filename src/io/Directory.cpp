@@ -4,6 +4,8 @@
 #include <io/Directory.hpp>
 #ifdef _MSC_VER
 #include <io.h>
+#include <stdlib.h>
+#include <stdio.h>
 #else
 #include <unistd.h>
 #endif
@@ -38,8 +40,8 @@ namespace slc{
             if('/' == fullPath[i])
             {
                 std::string curPath = fullPath.substr(0, i);
-                if(access(curPath.c_str(), F_OK) != 0)
-                    if(mkdir(curPath.c_str()) == -1)
+                if(access(curPath.c_str(), 0) != 0)
+                    // if(mkdir(curPath.c_str()) == -1)
                         return false;
             }
         }
@@ -47,7 +49,8 @@ namespace slc{
         return true;
     }
     bool Directory::mk_dir() {
-        return mkdir(this->_entity.toStdChars()) == 0;
+        // return mkdir(this->_entity.toStdChars()) == 0;
+        return true;
     }
     bool Directory::exist() {
         return File(this->_entity).isExist();

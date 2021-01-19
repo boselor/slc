@@ -8,3 +8,6 @@ b/*
 build/*
 cmake-build-debug/*
 /*.mp4
+out/*
+.vs/
+.idea/

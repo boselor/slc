@@ -19,7 +19,7 @@ namespace slc{
 
     bool File::isExist() {
 #ifdef _MSC_VER
-        return _access(this->_file.toStdChars(),F_OK) == 0;
+        return _access(this->_file.toStdChars(),0) == 0;
 #else
         return access(this->_file.toStdChars(),F_OK) == 0;
 #endif
